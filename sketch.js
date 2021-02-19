@@ -35,14 +35,13 @@ function draw() {
   if (bg.sprite.y < camera.position.y - height / 2) {
     bg.sprite.y = camera.position.y;
   }
-
-  //right and left moves of spaceship
-  if (keyDown("left") && spaceship.x > 10) {
-    spaceship.x = spaceship.x - 20;
-  }
-  if (keyDown("right") && spaceship.x < width - 100) {
-    spaceship.x = spaceship.x + 20;
-  }
-
+   
+ //right and left moves of spaceship
+ if (keyDown("left") && spaceship.sprite.x > 100) {
+  spaceship.sprite.x = spaceship.sprite.x - 20;
+}
+if (keyDown("right") && spaceship.sprite.x< width - 100) {
+  spaceship.sprite.x = spaceship.sprite.x+ 20;
+}
   drawSprites();
 }
