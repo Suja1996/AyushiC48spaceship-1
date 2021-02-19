@@ -4,16 +4,16 @@ var spaceship, backgroundImage;
 var backgroundSprite;
 function setup() {
    //make it as display width
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
  
   //create class and object
   bg = new backgroundI(
-    displayWidth / 2,
-    displayHeight / 2,
-    displayWidth,
-    displayHeight * 4
+    windowWidth / 2,
+    windowHeight / 2,
+    windowWidth,
+    windowHeight * 4
   );
-  spaceship = new spaceShip(displayWidth / 2, displayHeight - 100, 50, 50);
+  spaceship = new spaceShip(windowWidth / 2, windowHeight - 100, 50, 50);
 
  
 }
@@ -27,12 +27,12 @@ function draw() {
 
 
 //set camera positions
-  camera.position.x = displayWidth / 2;
+  camera.position.x = windowWidth / 2;
   camera.position.y = spaceship.sprite.y;
 
   // repetive bg
 
-  if (bg.sprite.y < camera.position.y - displayHeight / 2) {
+  if (bg.sprite.y < camera.position.y - windowHeight / 2) {
     bg.sprite.y = camera.position.y;
   }
 
@@ -40,7 +40,7 @@ function draw() {
   if (keyDown("left") && spaceship.x > 10) {
     spaceship.x = spaceship.x - 20;
   }
-  if (keyDown("right") && spaceship.x < displayWidth - 100) {
+  if (keyDown("right") && spaceship.x < windowWidth - 100) {
     spaceship.x = spaceship.x + 20;
   }
 
