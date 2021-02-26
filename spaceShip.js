@@ -4,12 +4,15 @@ class spaceShip{
         this.sprite= createSprite(x,y,width,height)
         this.sprite.velocityY=-5;
         this.image=loadImage("images/ship1.png")
+       // this.test=loadImage("images/ship1.png")
     }
-    display(){
+    display(shipimage){
         
        
-        this.sprite.addImage(this.image)
-        this.sprite.scale=1.4
+        this.sprite.addImage(shipimage)
+        this.sprite.scale=0.2
+       
+
   
     }
 }

@@ -7,11 +7,11 @@ class backgroundI{
         this.sprite.velocityY=-20
         this.bgImage = loadImage("images/bgImage2.png");
     }
-    display(){
+    display(bgImage){
       
    
-        this.sprite.addImage(this.bgImage)
-        this.sprite.scale=1.4
+        this.sprite.addImage(bgImage)
+        this.sprite.scale=3
       
     }
 }
