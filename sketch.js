@@ -24,7 +24,7 @@ function setup() {
 
   //create class and object
   bg = new backgroundI(width / 2, height / 2, width, height * 4);
-  spaceship = new spaceShip(width / 2, height - 100, 50, 50);
+  spaceship = new spaceShip(width / 2, height- height/4, 50, 50);
   danger = createSprite(
     width / 2,
     spaceship.sprite.y + height / 1.8,
