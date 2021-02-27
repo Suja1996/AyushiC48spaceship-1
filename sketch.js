@@ -52,11 +52,11 @@ function draw() {
   //display bg and spaceship
 
   //spaceship.display();
-
+console.log(height)
   //set camera positions
   camera.position.x = width / 2;
-  if (level == 2 || level == 3)
-    camera.position.y = spaceship.sprite.y - width / 2 + 400;
+  if (level == 2 || level == 1)
+    camera.position.y = spaceship.sprite.y-1.3*height + height;
 
   // repetive bg
 
@@ -65,12 +65,7 @@ function draw() {
   }
   if (gameState == "play") {
     //right and left moves of spaceship
-    if (keyDown("left") && spaceship.sprite.x > 100) {
-      spaceship.sprite.x = spaceship.sprite.x - 20;
-    }
-    if (keyDown("right") && spaceship.sprite.x < width - 100) {
-      spaceship.sprite.x = spaceship.sprite.x + 20;
-    }
+   
 
     if (spaceship.sprite.isTouching(shipImageGroup)) {
       shipImageGroup.destroyEach();
@@ -125,7 +120,7 @@ function draw() {
     
     if (level == 2) {
       bg.display(bg3);
-    } else if (level == 1) {
+    } else if (level == 3) {
       if (count == 1) {
         spaceship.sprite.velocityY = 0;
         danger.position.y = spaceship.sprite.y + height / 1.8;
@@ -151,7 +146,7 @@ function draw() {
       // spaceship.velocityY=-1
       spaceship.sprite.y -= 1;
       console.log(spaceship.y);
-    } else if (level == 3) {
+    } else if (level == 1) {
 
       bg.display(bg1);
     }
@@ -160,20 +155,26 @@ function draw() {
       alien1Group.destroyEach();
       alien2Group.destroyEach()
     }
-
+    //code for pc working
+    if (keyDown("left") && spaceship.sprite.x > 100) {
+      spaceship.sprite.x = spaceship.sprite.x - 20;
+    }
+    if (keyDown("right") && spaceship.sprite.x < width - 100) {
+      spaceship.sprite.x = spaceship.sprite.x + 20;
+    }
     // CODE for touches
-    // if(touches.length>0){
-    //   //right and left moves of spaceship
+    if(touches.length>0){
+      //right and left moves of spaceship
 
-    //   if ((keyDown("left") && spaceship.sprite.x > 10)|| touches[0].x<width/2) {
-    //     spaceship.sprite.x = spaceship.sprite.x - 20;
-    //     console.log("left")
-    //     touches=[]
-    //   }else if ((keyDown("right") && spaceship.sprite.x < width - 100)||touches[0].x>width/2) {
-    //     spaceship.sprite.x = spaceship.sprite.x + 20;
-    //     touches=[]
-    //   }
-    // }
+      if ((keyDown("left") && spaceship.sprite.x > 10)|| touches[0].x<width/2) {
+        spaceship.sprite.x = spaceship.sprite.x - 20;
+        console.log("left")
+        touches=[]
+      }else if ((keyDown("right") && spaceship.sprite.x < width - 100)||touches[0].x>width/2) {
+        spaceship.sprite.x = spaceship.sprite.x + 20;
+        touches=[]
+      }
+    }
     arrow();
 
     text(
@@ -183,7 +184,7 @@ function draw() {
     );
     text("Life " + life, width / 2, camera.position.y - height / 2 + 50);
     text("Level " + level, 200, camera.position.y - height / 2 + 50);
-    text("y :"+mouseY,mouseX,mouseY)
+   // text("y :"+mouseY,mouseX,mouseY)
     if (frameCount % 50 === 0) {
       spawnAliens1();
     }
