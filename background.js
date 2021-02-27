@@ -11,7 +11,7 @@ class backgroundI{
       
    
         this.sprite.addImage(bgImage)
-        this.sprite.scale=3
+        this.sprite.scale=6
       
     }
 }
