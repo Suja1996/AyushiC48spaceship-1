@@ -24,14 +24,13 @@ function setup() {
 
   //create class and object
   bg = new backgroundI(width / 2, height / 2, width, height * 4);
-  spaceship = new spaceShip(width / 2, height- height/4, 50, 50);
+  spaceship = new spaceShip(width / 2, height - height/4, 50, 50);
   danger = createSprite(
     width / 2,
     spaceship.sprite.y + height / 1.8,
     width,
     height
   );
-
 
   shipChangeImage = shipImage1;
   alien1Group = new Group();
@@ -120,7 +119,6 @@ function draw() {
       powerPoints += 5;
     }
 
-    
     if (level == 2) {
       bg.display(bg3);
     } else if (level == 3) {
@@ -129,15 +127,13 @@ function draw() {
         danger.position.y = spaceship.sprite.y + height / 1.8;
         spaceshipPosition = spaceship.sprite.y;
         camera.position.y = spaceshipPosition - width / 6;
-       
-       
       }
-      console.log("sp"+spaceshipPosition)
-      console.log("y of ship"+spaceship.sprite.y)
-      console.log("height "+height)
-     
-      if(spaceship.sprite.y<spaceshipPosition-height-height/4){
-        gameState="end"
+      console.log("sp" + spaceshipPosition);
+      console.log("y of ship" + spaceship.sprite.y);
+      console.log("height " + height);
+
+      if (spaceship.sprite.y < spaceshipPosition - height - height / 4) {
+        gameState = "end";
       }
       count++;
       bg.display(bg2);
@@ -150,13 +146,12 @@ function draw() {
       spaceship.sprite.y -= 1;
       console.log(spaceship.y);
     } else if (level == 1) {
-
       bg.display(bg1);
     }
 
-    if(danger.isTouching(alien1Group)||danger.isTouching(alien2Group)){
+    if (danger.isTouching(alien1Group) || danger.isTouching(alien2Group)) {
       alien1Group.destroyEach();
-      alien2Group.destroyEach()
+      alien2Group.destroyEach();
     }
 
     // CODE for touches
@@ -181,7 +176,7 @@ function draw() {
     );
     text("Life " + life, width / 2, camera.position.y - height / 2 + 50);
     text("Level " + level, 200, camera.position.y - height / 2 + 50);
-    text("y :"+mouseY,mouseX,mouseY)
+    text("y :" + mouseY, mouseX, mouseY);
     if (frameCount % 50 === 0) {
       spawnAliens1();
     }
