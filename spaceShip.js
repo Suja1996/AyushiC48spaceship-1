@@ -10,7 +10,7 @@ class spaceShip{
         
        
         this.sprite.addImage(shipimage)
-        this.sprite.scale=0.2
+        this.sprite.scale=3
        
 
   
